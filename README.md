@@ -9,6 +9,6 @@ A simple AMP HTML validator for multiple urls extracted from a CSV file.
 
 ## Usage
 - Run with a CSV file. There must be a 'AMP URL' column
-  - python <some_file.csv>
+  - python amp_validate.py <some_file.csv>
 - The same but replacing the host of every URL with a custom host. Useful for testing in different development environments.
-  - python <some_file.csv> <custom_host>
+  - python amp_validate.py <some_file.csv> <custom_host>
