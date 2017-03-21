@@ -17,11 +17,23 @@ def _get_url(original_url):
 
 # Main
 csv_path = sys.argv[1]
+fails = 0
+passes = 0
+row_number = 0
 with open(csv_path, 'rb') as file:
 	reader = csv.DictReader(file)
 	for row in reader:
 		url = _get_url(row['AMP URL'])
-		print call(['amphtml-validator', url])
+		row_number += 1
+		print "ROW " + str(row_number)
+		return_code = call(['amphtml-validator', url])
+		print ""
+		if return_code == 0:
+			passes = passes + 1
+		else:
+			fails = fails + 1
+	print "TOTAL PASSES: " + str(passes)
+	print "TOTAL FAILS: " + str(fails)
 
 
 
