@@ -90,3 +90,4 @@ ENV/
 
 # My ignores
 *.csv
+.idea/*
