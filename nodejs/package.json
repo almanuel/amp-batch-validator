@@ -1,0 +1,19 @@
+{
+  "name": "amp-batch-validator",
+  "version": "1.0.0",
+  "description": "A simple AMP HTML validator for multiple urls.",
+  "main": "amp_validate.js",
+  "scripts": {
+    "run": "node amp_validate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "amp-batch-validator"
+  },
+  "keywords": [
+    "amp",
+    "validation"
+  ],
+  "author": "manuelpira",
+  "license": "GPL-3.0"
+}
