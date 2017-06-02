@@ -15,5 +15,11 @@
     "validation"
   ],
   "author": "manuelpira",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "amphtml-validator": "^1.0.20",
+    "csv-parse": "^1.2.0",
+    "fs": "0.0.1-security",
+    "request": "^2.81.0"
+  }
 }
