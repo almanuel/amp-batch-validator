@@ -28,20 +28,26 @@ function amp_validate_url(url) {
     });
 };
 
-// function amp_validate_parse_csv(csv_path) {
-//     var fs = require('fs');
-//     var input = fs.open(csv_path, function {
-//         var parse = require('csv-parse/lib/sync');
-//         return parse(input, {columns: true});
-//     });
-// };
+function amp_validate_parse_csvfile(csv_path) {
+    var fs = require('fs');
+    var parse = require('csv-parse');
+    var parser = parse({delimiter: ','}, function(err, data) {
+        data.forEach(function(element, index) {
+            if (index > 0) {
+                var url = element[0];
+                amp_validate_url(url);
+            }
+        }, this);
+    });
 
-// amp_validate_parse_csv('csv_sample.csv');
+    fs.createReadStream(csv_path).pipe(parser);
+}
 
 
-// SYNC APPROACH
-// SAVE STD OUTPUT IN FILE
-// PIPE APPROACH
-// HANDLEBARS
-// MONGOOSE
-// EXPRESS
+if (process.argv.length > 2 ) {
+    var csv_path = process.argv[2];
+    amp_validate_parse_csvfile(csv_path);
+}
+else {
+    console.log('Invalid parameters.');
+}
