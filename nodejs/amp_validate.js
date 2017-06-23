@@ -2,8 +2,9 @@
 var amphtmlValidator = require('amphtml-validator');
 var request = require("request");
 
-function validateBody(body) {
+function validateBody(url, body) {
     return function (validator) {
+        console.log('\n' + url);
         var result = validator.validateString(body);
         ((result.status === 'PASS') ? console.log : console.error)(result.status);
         for (var ii = 0; ii < result.errors.length; ii++) {
@@ -20,7 +21,7 @@ function validateBody(body) {
 function validateUrl(url) {
     request(url, function (error, response, body) {
         if (!error) {
-            amphtmlValidator.getInstance().then(validateBody(body));
+            var ampValidation = amphtmlValidator.getInstance().then(validateBody(url, body));
         } else {
             console.log(error);
         }
