@@ -29,9 +29,9 @@ with open(csv_path, 'rb') as file:
 		return_code = call(['amphtml-validator', url])
 		print ""
 		if return_code == 0:
-			passes = passes + 1
+			passes += 1
 		else:
-			fails = fails + 1
+			fails += 1
 	print "TOTAL PASSES: " + str(passes)
 	print "TOTAL FAILS: " + str(fails)
 

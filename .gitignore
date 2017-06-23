@@ -90,3 +90,9 @@ ENV/
 
 # My ignores
 *.csv
+.idea/*
+.vscode/*
+
+# Node JS
+nodejs/node_modules
+nodejs/node_modules/*
